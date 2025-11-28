@@ -1,0 +1,953 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply bg-white text-primary font-sans;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .clip-path-hidden {
+    clip-path: inset(50% 0 50% 0);
+  }
+  
+  .clip-path-revealed {
+    clip-path: inset(0 0 0 0);
+  }
+  
+  @keyframes reveal-image {
+    0% {
+      clip-path: inset(50% 0 50% 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  .reveal-image-animation {
+    animation: reveal-image 1s ease-out;
+  }
+  
+  /* Header styles matching original */
+  .header-wrapper {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 199;
+    transition: all 0.5s;
+    border-bottom: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .header-wrapper {
+      left: 0;
+      top: 0;
+      right: auto;
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  .header {
+    background: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.5s;
+    position: relative;
+    z-index: 200;
+  }
+  
+  .ini-anim {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
+  
+  /* Initial animation state */
+  .home-progress p.ini-anim {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  
+  /* Quality Products Section */
+  .block-portfolio-slider {
+    position: relative;
+    padding-block: 6.94444vw 4.72222vw;
+    padding-inline: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .block-portfolio-slider {
+      padding-inline-start: 80px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .block-portfolio-slider {
+      padding-inline-start: 25px;
+    }
+  }
+  
+  .block-portfolio-slider-title-quality {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  
+  .block-portfolio-slider-title-quality-content {
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .block-portfolio-slider-title-quality h3 {
+    text-transform: capitalize;
+    color: #221f20;
+    font-size: clamp(2rem, 4vw, 5rem);
+    font-weight: 700;
+  }
+  
+  .block-portfolio-slider-title-quality-content p {
+    color: #221f20;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    line-height: 1.6;
+  }
+  
+  .block-portfolio-slider-main {
+    padding-inline-start: 9.375vw;
+    overflow: visible;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .block-portfolio-slider-main {
+      padding-inline-start: 80px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .block-portfolio-slider-main {
+      padding-inline-start: 25px;
+      padding-bottom: 40px;
+    }
+  }
+  
+  .portfolio-slide {
+    width: 434.9px !important;
+    flex-shrink: 0;
+    position: relative;
+  }
+  
+  /* Spacing calculated from Figma left values */
+  /* Slide 1 image extends to: -168.07 + 434.9 = 266.83px */
+  /* Slide 2 starts at: 496.46px, so gap = 496.46 - 266.83 = 229.63px */
+  .block-portfolio-slider-main .slide-first {
+    margin-right: 229.63px;
+  }
+  
+  /* Slide 2 image extends to: 496.46 + 434.9 = 931.36px */
+  /* Slide 3 starts at: 1048.69px, so gap = 1048.69 - 931.36 = 117.33px */
+  /* Increased spacing to prevent collision */
+  .block-portfolio-slider-main .slide-second {
+    margin-right: 150px;
+  }
+  
+  /* Maintain same spacing on mobile */
+  @media only screen and (max-width: 1024px) {
+    .block-portfolio-slider-main .slide-first {
+      margin-right: 229.63px;
+    }
+    
+    .block-portfolio-slider-main .slide-second {
+      margin-right: 150px;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .block-portfolio-slider-main .slide-first {
+      margin-right: 229.63px;
+    }
+    
+    .block-portfolio-slider-main .slide-second {
+      margin-right: 150px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .block-portfolio-slider-main .slide-first {
+      margin-right: 229.63px;
+    }
+    
+    .block-portfolio-slider-main .slide-second {
+      margin-right: 150px;
+    }
+  }
+  
+  /* Maintain same dimensions on mobile - scale proportionally */
+  @media only screen and (max-width: 1024px) {
+    .portfolio-slide {
+      width: 434.9px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .portfolio-slide {
+      width: 434.9px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .portfolio-slide {
+      width: 434.9px !important;
+    }
+  }
+  
+  .portfolio-slide .top {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .portfolio-slide .bottom {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    position: relative;
+  }
+  
+  .portfolio-image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 27.5vw;
+  }
+  
+  .portfolio-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* 1st image (left) - exact Figma dimensions, rotated to the left */
+  .block-portfolio-slider-main .slide-first .portfolio-image-container {
+    width: 434.9px;
+    height: 619.21px;
+    position: relative;
+    left: -168.07px;
+    transform: rotate(-9.55deg) !important;
+  }
+  
+  .block-portfolio-slider-main .slide-first .portfolio-image {
+    width: 434.9px !important;
+    height: 619.21px !important;
+  }
+  
+  /* 2nd image (center) - exact Figma dimensions, straight (no rotation) */
+  .block-portfolio-slider-main .slide-second .portfolio-image-container {
+    width: 434.9px;
+    height: 619.21px;
+    position: relative;
+    left: 0;
+    transform: rotate(0deg) !important;
+  }
+  
+  .block-portfolio-slider-main .slide-second .portfolio-image {
+    width: 434.9px !important;
+    height: 619.21px !important;
+  }
+  
+  /* 3rd image (right) - exact Figma dimensions, rotated to the right, partially visible */
+  .block-portfolio-slider-main .slide-third .portfolio-image-container {
+    width: 434.9px;
+    height: 619.21px;
+    position: relative;
+    left: 0;
+    transform: rotate(9.5deg) !important;
+    overflow: hidden;
+  }
+  
+  .block-portfolio-slider-main .slide-third .portfolio-image {
+    width: 434.9px !important;
+    height: 619.21px !important;
+  }
+  
+  /* On desktop, ensure 3rd image is partially cropped */
+  .block-portfolio-slider-main .slide-third {
+    overflow: hidden;
+  }
+  
+  /* Maintain same image dimensions on mobile */
+  @media only screen and (max-width: 1024px) {
+    .block-portfolio-slider-main .slide-first .portfolio-image-container,
+    .block-portfolio-slider-main .slide-second .portfolio-image-container,
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      width: 434.9px;
+      height: 619.21px;
+    }
+    
+    .block-portfolio-slider-main .slide-first .portfolio-image,
+    .block-portfolio-slider-main .slide-second .portfolio-image,
+    .block-portfolio-slider-main .slide-third .portfolio-image {
+      width: 434.9px !important;
+      height: 619.21px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .block-portfolio-slider-main .slide-first .portfolio-image-container,
+    .block-portfolio-slider-main .slide-second .portfolio-image-container,
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      width: 434.9px;
+      height: 619.21px;
+    }
+    
+    .block-portfolio-slider-main .slide-first .portfolio-image,
+    .block-portfolio-slider-main .slide-second .portfolio-image,
+    .block-portfolio-slider-main .slide-third .portfolio-image {
+      width: 434.9px !important;
+      height: 619.21px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .block-portfolio-slider-main .slide-first .portfolio-image-container,
+    .block-portfolio-slider-main .slide-second .portfolio-image-container,
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      width: 434.9px;
+      height: 619.21px;
+    }
+    
+    .block-portfolio-slider-main .slide-first .portfolio-image,
+    .block-portfolio-slider-main .slide-second .portfolio-image,
+    .block-portfolio-slider-main .slide-third .portfolio-image {
+      width: 434.9px !important;
+      height: 619.21px !important;
+    }
+  }
+  
+  .button--largePadding {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    line-height: 1.2;
+    color: #221f20;
+    background: #ffffff;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    transition: clip-path 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Initially hidden with clip-path */
+    clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  }
+  
+  /* Show Drag button on hover using clip-path */
+  .portfolio-slide .bottom:hover .button--largePadding,
+  .portfolio-image-container:hover .button--largePadding {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 99;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .button--largePadding {
+      width: 70px;
+      height: 70px;
+      font-size: 14px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .button--largePadding {
+      width: 60px;
+      height: 60px;
+      font-size: 12px;
+    }
+  }
+  
+  .button--largePadding:hover {
+    background: #f0f0f0;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  
+  .button--largePadding.no_hover:hover {
+    background: #ffffff;
+    transform: translate(-50%, -50%);
+  }
+  
+  .client-info {
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+    opacity: 1;
+  }
+  
+  /* Slide positioning - using Figma dimensions */
+  .block-portfolio-slider-main {
+    overflow: visible;
+    position: relative;
+  }
+  
+  .slider-items {
+    overflow: visible;
+    width: 100%;
+  }
+  
+  /* On mobile, ensure all 3 images are visible without sliding */
+  @media only screen and (max-width: 1023px) {
+    .slider-items {
+      overflow: hidden !important;
+      width: 100%;
+      padding: 0;
+    }
+    
+    .block-portfolio-slider-main {
+      width: 100%;
+      overflow: hidden;
+      touch-action: none;
+    }
+    
+    .block-portfolio-slider-main .swiper-wrapper {
+      display: flex !important;
+      transform: translate3d(0, 0, 0) !important;
+      width: 100% !important;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+    }
+    
+    .block-portfolio-slider-main .swiper-slide {
+      flex-shrink: 0 !important;
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    /* Scale down images to fit all 3 on screen - calculate based on viewport */
+    /* For mobile: scale to fit 3 images + spacing within viewport */
+    .block-portfolio-slider-main .slide-first .portfolio-image-container,
+    .block-portfolio-slider-main .slide-second .portfolio-image-container,
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      width: calc((100vw - 60px) / 3.5) !important;
+      height: calc((100vw - 60px) / 3.5 * 1.424) !important;
+      max-width: calc(434.9px * 0.4) !important;
+      max-height: calc(619.21px * 0.4) !important;
+    }
+    
+    .block-portfolio-slider-main .slide-first .portfolio-image,
+    .block-portfolio-slider-main .slide-second .portfolio-image,
+    .block-portfolio-slider-main .slide-third .portfolio-image {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    
+    .block-portfolio-slider-main .portfolio-slide {
+      width: calc((100vw - 60px) / 3.5) !important;
+      max-width: calc(434.9px * 0.4) !important;
+    }
+    
+    /* Ensure third slide is visible but partially cropped */
+    .block-portfolio-slider-main .slide-third {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      overflow: hidden !important;
+      width: calc((100vw - 60px) / 3.5 * 0.6) !important;
+      max-width: calc(434.9px * 0.4 * 0.6) !important;
+    }
+    
+    /* Crop 3rd image from left side on mobile */
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      left: -30% !important;
+    }
+    
+    /* Reduce spacing for mobile to fit all 3 */
+    .block-portfolio-slider-main .slide-first {
+      margin-right: 8px !important;
+    }
+    
+    /* Move center image slightly left and add gap before 3rd image */
+    .block-portfolio-slider-main .slide-second {
+      margin-right: 15px !important;
+      margin-left: -10px !important;
+    }
+    
+    /* Adjust left offset for first image */
+    .block-portfolio-slider-main .slide-first .portfolio-image-container {
+      left: calc(-168.07px * 0.3) !important;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    /* Scale down further for smaller mobile screens to fit all 3 */
+    .block-portfolio-slider-main .slide-first .portfolio-image-container,
+    .block-portfolio-slider-main .slide-second .portfolio-image-container,
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      width: calc((100vw - 40px) / 3.5) !important;
+      height: calc((100vw - 40px) / 3.5 * 1.424) !important;
+      max-width: calc(434.9px * 0.35) !important;
+      max-height: calc(619.21px * 0.35) !important;
+    }
+    
+    .block-portfolio-slider-main .slide-first .portfolio-image,
+    .block-portfolio-slider-main .slide-second .portfolio-image,
+    .block-portfolio-slider-main .slide-third .portfolio-image {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    
+    .block-portfolio-slider-main .portfolio-slide {
+      width: calc((100vw - 40px) / 3.5) !important;
+      max-width: calc(434.9px * 0.35) !important;
+    }
+    
+    /* Ensure third slide is visible but partially cropped on smaller screens */
+    .block-portfolio-slider-main .slide-third {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      overflow: hidden !important;
+      width: calc((100vw - 40px) / 3.5 * 0.6) !important;
+      max-width: calc(434.9px * 0.35 * 0.6) !important;
+    }
+    
+    /* Crop 3rd image from left side on smaller mobile */
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      left: -30% !important;
+    }
+    
+    .block-portfolio-slider-main .slide-first {
+      margin-right: 6px !important;
+    }
+    
+    /* Move center image slightly left and add gap before 3rd image */
+    .block-portfolio-slider-main .slide-second {
+      margin-right: 12px !important;
+      margin-left: -8px !important;
+    }
+    
+    .block-portfolio-slider-main .slide-first .portfolio-image-container {
+      left: calc(-168.07px * 0.25) !important;
+    }
+  }
+  
+  .block-portfolio-slider-main .swiper-slide {
+    transform: none;
+    transition: transform 0.5s ease;
+    position: relative;
+  }
+  
+  /* Calculate spacing from Figma left values */
+  /* Slide 1 left: -168.07px, Slide 2 left: 496.46px, Slide 3 left: 1048.69px */
+  /* Spacing between slide 1 and 2: 496.46 - (-168.07 + 434.9) = 229.63px */
+  /* Spacing between slide 2 and 3: 1048.69 - (496.46 + 434.9) = 117.33px */
+  
+  /* Maintain same rotations on mobile */
+  @media only screen and (max-width: 768px) {
+    .block-portfolio-slider-main .slide-first .portfolio-image-container {
+      transform: rotate(-9.55deg) !important;
+    }
+    
+    .block-portfolio-slider-main .slide-second .portfolio-image-container {
+      transform: rotate(0deg) !important;
+    }
+    
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      transform: rotate(9.5deg) !important;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .block-portfolio-slider-main .slide-first .portfolio-image-container {
+      transform: rotate(-9.55deg) !important;
+    }
+    
+    .block-portfolio-slider-main .slide-second .portfolio-image-container {
+      transform: rotate(0deg) !important;
+    }
+    
+    .block-portfolio-slider-main .slide-third .portfolio-image-container {
+      transform: rotate(9.5deg) !important;
+    }
+  }
+  
+  /* Client info styling - below center image */
+  .block-portfolio-slider-main .slide-second .client-info {
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .client-name {
+    font-family: var(--font-work-sans), 'Work Sans', sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 60px;
+    letter-spacing: -1px;
+    text-align: center;
+    margin: 0 0 4px 0;
+    color: #221f20;
+  }
+  
+  .client-location {
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    margin: 0;
+    color: #221f20;
+    opacity: 0.8;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .block-portfolio-slider-main .slide-second .client-info {
+      margin-top: 15px;
+    }
+    
+    .client-name {
+      font-size: 28px;
+      line-height: 48px;
+    }
+    
+    .client-location {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .block-portfolio-slider-main .slide-second .client-info {
+      margin-top: 10px;
+    }
+    
+    .client-name {
+      font-size: 24px;
+      line-height: 40px;
+      letter-spacing: -0.8px;
+    }
+    
+    .client-location {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Thumbnail slider animations */
+  .homepage-thumbs .swiper-slide {
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+  
+  .homepage-thumbs .swiper-slide-active {
+    opacity: 1;
+  }
+  
+  .homepage-thumbs .swiper-slide .slide-overlay {
+    width: 93px;
+    height: 93px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(0deg, rgba(34, 31, 32, 0.2), rgba(34, 31, 32, 0.2));
+    clip-path: inset(50% 0 50% 0);
+    opacity: 0;
+    z-index: 99;
+    transition: opacity 2s, clip-path 2s;
+  }
+  
+  .homepage-thumbs .swiper-slide .slide-overlay.ini-anim {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  
+  .homepage-thumbs .swiper-slide .thumbnail-img-wrapper {
+    width: 93px;
+    height: 93px;
+    clip-path: inset(50% 0 50% 0);
+    transition: clip-path 2s;
+    overflow: hidden;
+  }
+  
+  .homepage-thumbs .swiper-slide .thumbnail-img-wrapper.ini-anim {
+    clip-path: inset(0 0 0 0);
+  }
+  
+  .homepage-thumbs .swiper-slide-active .thumbnail-img-wrapper.animate {
+    animation: reveal-image 1s ease-out;
+  }
+
+   /* Thumbnail frame progress border (Next slider indicator) */
+   .homepage-thumbs-wrapper {
+     position: absolute;
+     left: 8vw;
+     bottom: 60px;
+   }
+   
+   .homepage-thumbs-wrapper .next-p {
+     position: absolute;
+     top: -30px;
+     left: 0;
+     height: fit-content;
+     width: fit-content;
+     color: #f9f4ee;
+     z-index: 10;
+     opacity: 0;
+     cursor: pointer;
+     font-size: clamp(1rem, 1.11111vw, 1.45833vw);
+     line-height: 1.5;
+     text-transform: uppercase;
+     letter-spacing: 0.2em;
+     margin-bottom: 8px;
+   }
+   
+   .homepage-thumbs-wrapper .next-p.ini-anim {
+     opacity: 1;
+   }
+   
+   .homepage-thumbs-wrapper .next-p:hover {
+     opacity: 0.7;
+   }
+   
+   @media only screen and (max-width: 480px) {
+     .homepage-thumbs-wrapper .next-p {
+       font-size: clamp(0.875rem, 0.97222vw, 1.31944vw);
+     }
+   }
+   
+   @media only screen and (max-width: 320px) {
+     .homepage-thumbs-wrapper .next-p {
+       font-size: clamp(0.75rem, 0.83333vw, 1.18056vw);
+     }
+   }
+
+  .homepage-thumbs-frame-edge {
+    position: absolute;
+    opacity: 1;
+    background: #f9f4ee;
+    pointer-events: none;
+  }
+
+  .homepage-thumbs-frame-edge.top-edge-thumb {
+    top: -3px;
+    left: -3px;
+    height: 9px;
+  }
+
+  .homepage-thumbs-frame-edge.right-edge-thumb {
+    top: -3px;
+    right: -3px;
+    width: 9px;
+  }
+
+  .homepage-thumbs-frame-edge.bottom-edge-thumb {
+    bottom: -3px;
+    right: -3px;
+    height: 9px;
+  }
+
+  .homepage-thumbs-frame-edge.left-edge-thumb {
+    bottom: -3px;
+    left: -3px;
+    width: 9px;
+  }
+
+   /* Border progress animation - completes at 9.6s (80% of 12s) for instant slide change */
+   @keyframes thumbBorderTopProgress {
+     0% { width: 0%; }
+     20.83% { width: 100%; }
+     100% { width: 100%; }
+   }
+ 
+   @keyframes thumbBorderRightProgress {
+     0% { height: 0%; }
+     20.83% { height: 0%; }
+     41.66% { height: 100%; }
+     100% { height: 100%; }
+   }
+ 
+   @keyframes thumbBorderBottomProgress {
+     0% { width: 0%; }
+     41.66% { width: 0%; }
+     62.5% { width: 100%; }
+     100% { width: 100%; }
+   }
+ 
+   @keyframes thumbBorderLeftProgress {
+     0% { height: 0%; }
+     62.5% { height: 0%; }
+     83.33% { height: 100%; }
+     100% { height: 100%; }
+   }
+ 
+   .homepage-thumbs-border-anim .top-edge-thumb {
+     animation: thumbBorderTopProgress 9.6s linear forwards;
+   }
+ 
+   .homepage-thumbs-border-anim .right-edge-thumb {
+     animation: thumbBorderRightProgress 9.6s linear forwards;
+   }
+ 
+   .homepage-thumbs-border-anim .bottom-edge-thumb {
+     animation: thumbBorderBottomProgress 9.6s linear forwards;
+   }
+ 
+   .homepage-thumbs-border-anim .left-edge-thumb {
+     animation: thumbBorderLeftProgress 9.6s linear forwards;
+   }
+
+   /* Home progress indicator (numbers + horizontal line) */
+   .home-progress-wrapper {
+     overflow-y: hidden;
+     height: fit-content;
+   }
+ 
+   .home-progress {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     position: absolute;
+     z-index: 99;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+     right: -150%;
+     opacity: 0;
+   }
+ 
+   .home-progress.ini-anim {
+     opacity: 1;
+   }
+ 
+   .home-progress p {
+     margin: 0;
+     color: #fff;
+   }
+ 
+   .home-progress-line {
+     width: 103px;
+     height: 1px;
+     background-color: #fff;
+     margin-inline: 17px;
+   }
+ 
+   @media only screen and (max-width: 600px) {
+     .home-progress-line {
+       width: 100px;
+     }
+   }
+ 
+   @media only screen and (min-width: 1441px) {
+     .home-progress {
+       right: -170%;
+     }
+   }
+ 
+   @media only screen and (max-width: 600px) {
+     .home-progress {
+       right: -180%;
+     }
+   }
+ 
+   @media only screen and (max-width: 480px) {
+     .home-progress {
+       right: -55vw;
+     }
+   }
+ 
+   @media only screen and (max-width: 320px) {
+     .home-progress {
+       right: -57vw;
+     }
+   }
+
+  @media only screen and (max-width: 1024px) {
+    .homepage-thumbs-wrapper {
+      left: 8vw;
+      bottom: 60px;
+    }
+  }
+
+   @media only screen and (max-width: 600px) {
+     .homepage-thumbs-wrapper {
+       bottom: 20px;
+       left: 16px;
+     }
+     
+     .homepage-thumbs-border-anim {
+       width: 115px !important;
+       height: 115px !important;
+     }
+ 
+     .homepage-thumbs .swiper-slide .slide-overlay,
+     .homepage-thumbs .swiper-slide .thumbnail-img-wrapper {
+       width: 77.5px;
+       height: 77.5px;
+     }
+     
+     .homepage-thumbs-wrapper .next-p {
+       top: -25px;
+       font-size: 12px;
+     }
+   }
+   
+   @media only screen and (max-width: 1024px) {
+     .header-wrapper {
+       padding: 12px;
+     }
+     
+     .header {
+       padding: 12px 16px !important;
+     }
+   }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
